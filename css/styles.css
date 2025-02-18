@@ -284,5 +284,8 @@ main article div#bottomContainer button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--LightGrayishBlue);
+  background-color: var(--DesaturatedDarkBlue);
+}
+main article div#bottomContainer button.active {
+  background-color: var(--DesaturatedDarkBlue);
 }/*# sourceMappingURL=styles.css.map */

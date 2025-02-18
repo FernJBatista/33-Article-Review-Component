@@ -297,7 +297,11 @@ main {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-color: var(--LightGrayishBlue);
+                background-color: var(--DesaturatedDarkBlue);
+
+                &.active {
+                    background-color: var(--DesaturatedDarkBlue);
+                }
             }
         } 
 
