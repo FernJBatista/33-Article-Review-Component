@@ -139,7 +139,6 @@ table {
 
 h1 {
   font-size: clamp(1.25rem, 2.5vw, 2rem);
-  font-family: "Manrope", sans-serif;
   line-height: 1.25;
   font-weight: 700;
   color: var(--VeryDarkGrayishBlue);
@@ -147,19 +146,16 @@ h1 {
 
 h2 {
   font-size: 1rem;
-  font-family: "Manrope", sans-serif;
   font-weight: 700;
   color: var(--VeryDarkGrayishBlue);
 }
 
 .big {
   font-size: clamp(1.5rem, 2vw, 2rem);
-  font-family: "Manrope", sans-serif;
 }
 
 p {
   font-size: 1rem;
-  font-family: "Manrope", sans-serif;
   line-height: 1.5;
   color: var(--VeryDarkGrayishBlue);
 }
@@ -212,10 +208,21 @@ main article figure img {
 main article div#articleContent {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 2.5rem 2rem 0;
+  justify-content: space-between;
+  padding: 2.5rem 0 0;
 }
-main article div#bottomContainer {
+main article div#articleContent div#articleHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+main article div#articleContent div#articleHeader h1 {
+  margin: 0 2rem;
+}
+main article div#articleContent div#articleHeader p {
+  margin: 0 2rem;
+}
+main article div#articleContent div#bottomContainer {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -223,7 +230,12 @@ main article div#bottomContainer {
   align-items: center;
   margin-top: 1.5rem;
 }
-main article div#bottomContainer div#authorContent {
+@media screen and (min-width: 45rem) {
+  main article div#articleContent div#bottomContainer {
+    padding-bottom: 0.5rem;
+  }
+}
+main article div#articleContent div#bottomContainer div#authorContent {
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -231,49 +243,73 @@ main article div#bottomContainer div#authorContent {
   justify-content: space-between;
   padding: 1.25rem 2rem;
 }
-main article div#bottomContainer div#authorContent img {
+main article div#articleContent div#bottomContainer div#authorContent img {
   width: 2.75rem;
   height: 2.75rem;
   aspect-ratio: 1/1;
   border-radius: 9999px;
 }
-main article div#bottomContainer div#authorInfo {
+main article div#articleContent div#bottomContainer div#authorInfo {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.25rem;
 }
-main article div#bottomContainer div#shareContainer {
+main article div#articleContent div#bottomContainer div#authorInfo p {
+  margin: 0;
+}
+main article div#articleContent div#bottomContainer div#shareContainer {
   position: absolute;
-  visibility: hidden;
-  opacity: 0;
   display: flex;
+  left: 100%;
   flex-direction: row;
   align-items: center;
-  max-width: 0;
   width: 100%;
   height: 100%;
   gap: 1rem;
   padding: 1.25rem 2rem;
   background-color: var(--VeryDarkGrayishBlue);
+  transition: all 0.4s ease-in-out;
 }
-main article div#bottomContainer div#shareContainer.active {
-  visibility: visible;
-  opacity: 1;
-  max-width: none;
+@media screen and (min-width: 45rem) {
+  main article div#articleContent div#bottomContainer div#shareContainer {
+    left: auto;
+    right: -100%;
+    visibility: hidden;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    border-radius: 0.75rem 0 0 0.75rem;
+    padding: 1.25rem 6rem 1.25rem 2rem;
+  }
 }
-main article div#bottomContainer div#shareContainer h2 {
+main article div#articleContent div#bottomContainer div#shareContainer.active {
+  left: 0;
+}
+@media screen and (min-width: 45rem) {
+  main article div#articleContent div#bottomContainer div#shareContainer.active {
+    left: auto;
+    width: -moz-max-content;
+    width: max-content;
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+main article div#articleContent div#bottomContainer div#shareContainer h2 {
   color: var(--DesaturatedDarkBlue);
   text-transform: uppercase;
   letter-spacing: 0.25rem;
 }
-main article div#bottomContainer div#shareContainer div#socialMediaRow {
+main article div#articleContent div#bottomContainer div#shareContainer div#socialMediaRow {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
 }
-main article div#bottomContainer button {
+main article div#articleContent div#bottomContainer button {
   position: absolute;
   right: 2rem;
   z-index: 5;
@@ -284,8 +320,5 @@ main article div#bottomContainer button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--DesaturatedDarkBlue);
-}
-main article div#bottomContainer button.active {
   background-color: var(--DesaturatedDarkBlue);
 }/*# sourceMappingURL=styles.css.map */
